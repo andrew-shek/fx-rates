@@ -9,8 +9,3 @@ class FxRatesApplication
 fun main(args: Array<String>) {
 	runApplication<FxRatesApplication>(*args)
 }
-
-// test1
-// test2
-// test3
-//test4
