@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                scripts {
+                script {
                     echo 'Building..'
                     sh './gradlew clean build'
                 }
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build and publish docker image') {
             steps {
-                scripts {
+                script {
                     echo 'Build and publish docker image'
                     g_rls_img_tag = env.BRANCH_NAME.replaceAll(~/\//, "-").toLowerCase()
                     sh "${WORKSPACE}/scripts/docker-build-upload.sh Testing-fx-rates ${g_rls_img_tag} ${env.BRANCH_NAME}"
