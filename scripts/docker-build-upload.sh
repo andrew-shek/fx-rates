@@ -3,7 +3,7 @@ IMG_TAG=$2
 BRANCH=$3
 
 IMG_REPO='shektest'
-REGISTRY=registry.airwallex.com
+REGISTRY=asia.gcr.io
 
 RELEASE_URI="$REGISTRY/${IMG_REPO}/$APP_NAME"
 RELEASE_FULL_URI="${RELEASE_URI}:${IMG_TAG}"
