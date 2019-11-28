@@ -11,11 +11,11 @@ class HelloWorldController {
     val logger = LoggerFactory.getLogger(HelloWorldController::class.java)
 
     @GetMapping("/helloworld")
-    fun greeting(@RequestParam(value = "name", defaultValue = "Jack") name: String) {
+    fun greeting(@RequestParam(value = "name", defaultValue = "Jack") name: String): String {
         logger.info("in greeting function")
         logger.info("Hello $name")
 
-        "Hello $name"
+        return "Hello $name"
     }
 
 
