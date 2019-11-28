@@ -8,9 +8,6 @@ REGISTRY=asia.gcr.io
 RELEASE_URI="$REGISTRY/${IMG_REPO}/$APP_NAME"
 RELEASE_FULL_URI="${RELEASE_URI}:${IMG_TAG}"
 
-docker build --tag fx-rates:feature-testing1 .
-docker push registry.airwallex.com/shek-test/fx-rates
-
 
 echo "REGISTRY: $REGISTRY"
 echo "APP_NAME: $APP_NAME"
