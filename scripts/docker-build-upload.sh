@@ -16,14 +16,12 @@ echo "IMG_TAG: ${IMG_TAG}"
 echo "RELEASE_FULL_URI: ${RELEASE_FULL_URI}"
 echo "BRANCH: ${BRANCH}"
 
-
-docker build --tag "${IMG_TAG}" .
+BUILD_IMAGE="$REGISTRY/${GCP_PROJEXT}/$APP_NAME:$IMG_TAG"
+docker build --tag "${BUILD_IMAGE}" .
 
 
 # Generate a Release ID json file
 
 
-IMAGE_TAG="$REGISTRY/${IMG_REPO}/$APP_NAME:$RELEASE_FULL_URI"
-IMAGE_TAG="$REGISTRY/${GCP_PROJEXT}/$APP_NAME:$IMG_TAG"
-echo "Pushing ${IMAGE_TAG} to registry..."
-docker push "${IMAGE_TAG}"
+echo "Pushing ${BUILD_IMAGE} to registry..."
+docker push "${BUILD_IMAGE}"
