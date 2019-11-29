@@ -24,4 +24,6 @@ docker build --tag "${BUILD_IMAGE}" .
 
 
 echo "Pushing ${BUILD_IMAGE} to registry..."
-docker push "${BUILD_IMAGE}"
+docker.withRegistry('https:sia.gcr.io', 'gcr-dev-credentials') {
+  docker push "${BUILD_IMAGE}"
+}
