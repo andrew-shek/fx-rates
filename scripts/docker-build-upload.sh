@@ -22,8 +22,10 @@ docker build --tag "${RELEASE_FULL_URI}" .
 
 # Generate a Release ID json file
 
+# replace foward slash
+BRANCH_RENAME= $BRANCH.replaceAll(~/\//, "-").toLowerCase()
 
 
-IMAGE_TAG="$REGISTRY/${IMG_REPO}/$APP_NAME:$BRANCH"
+IMAGE_TAG="$REGISTRY/${IMG_REPO}/$APP_NAME:$BRANCH_RENAME"
 echo "Pushing ${IMAGE_TAG} to registry..."
 docker push "$IMAGE_TAG"
