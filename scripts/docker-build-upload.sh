@@ -21,7 +21,7 @@ docker build --tag "${BUILD_IMAGE}" .
 
 
 # Generate a Release ID json file
-
+cat keyfile.json | docker login -u _json_key --password-stdin https://asia.gcr.io
 
 echo "Pushing ${BUILD_IMAGE} to registry..."
 
