@@ -26,4 +26,4 @@ docker build --tag "${RELEASE_FULL_URI}" .
 
 IMAGE_TAG="$REGISTRY/${IMG_REPO}/$APP_NAME:$BRANCH"
 echo "Pushing ${IMAGE_TAG} to registry..."
-docker push "$IMAGE_TAG"
+docker push "${IMAGE_TAG}"
