@@ -20,7 +20,7 @@ pipeline {
                     //sh "docker build --tag asia.gcr.io/shektest/Testing-fx-rates:feature-testing1 ."
                     //sh "docker push asia.gcr.io/shektest/Testing-fx-rates:feature-testing1"
 
-                        sh "${WORKSPACE}/scripts/docker-build-upload.sh testing-fx-rates ${g_rls_img_tag} ${env.BRANCH_NAME}"
+                    sh "${WORKSPACE}/scripts/docker-build-upload.sh testing-fx-rates ${g_rls_img_tag} ${env.BRANCH_NAME}"
 
                 }
             }
