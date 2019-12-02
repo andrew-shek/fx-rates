@@ -21,6 +21,9 @@ docker build --tag "${BUILD_IMAGE}" .
 
 
 # Generate a Release ID json file
+echo "docker login"
+gcloud auth print-access-token
+
 gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://asia.gcr.io
 echo "Pushing ${BUILD_IMAGE} to registry..."
 
