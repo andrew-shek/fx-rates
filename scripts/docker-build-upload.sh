@@ -7,7 +7,8 @@ REGISTRY=asia.gcr.io
 
 RELEASE_URI="$REGISTRY/${IMG_REPO}/$APP_NAME"
 RELEASE_FULL_URI="${RELEASE_URI}:${IMG_TAG}"
-GCP_PROJEXT='growth-dev-landing'
+#GCP_PROJEXT='growth-dev-landing'
+GCP_PROJEXT='airwallex-infra'
 
 echo "REGISTRY: $REGISTRY"
 echo "APP_NAME: $APP_NAME"
@@ -20,9 +21,9 @@ BUILD_IMAGE="$REGISTRY/${GCP_PROJEXT}/$APP_NAME:$IMG_TAG"
 docker build --tag "${BUILD_IMAGE}" .
 
 # install gcloud
-echo "install gcloud"
-echo "$USER"
-pwd
+#echo "install gcloud"
+#echo "$USER"
+#pwd
 #echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 #curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 #sudo apt-get update && sudo apt-get install google-cloud-sdk
@@ -31,10 +32,11 @@ pwd
 
 
 # Generate a Release ID json file
-echo "docker login"
-gcloud auth print-access-token
+#echo "docker login"
+#gcloud auth print-access-token
 
-gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://asia.gcr.io
+#gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://asia.gcr.io
+# docker push asia.gcr.io/growth-dev-landing/testing-fx-rates:develop
 echo "Pushing ${BUILD_IMAGE} to registry..."
 
 docker -- push "${BUILD_IMAGE}"

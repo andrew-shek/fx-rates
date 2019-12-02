@@ -1,7 +1,9 @@
 def g_rls_img_tag = ""
 
 pipeline {
-    agent any
+    agent {
+       label 'iss-agent-standard'
+    }
 
     stages {
         stage('Build') {
